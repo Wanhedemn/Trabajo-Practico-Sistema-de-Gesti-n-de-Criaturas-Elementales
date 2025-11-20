@@ -1,6 +1,9 @@
-package ar.edu.unlam.pb2.creaturas;
+package ar.edu.unlam.pb2.maestro;
 
 import java.util.HashMap;
+
+import ar.edu.unlam.pb2.creaturas.Afinidad;
+import ar.edu.unlam.pb2.creaturas.Criatura;
 
 public class Maestro {
 
@@ -20,6 +23,12 @@ public class Maestro {
 		this.criaturasACargo.put(criatura.getNombre(), criatura);
 	}
 
+	public void entrenar(Criatura criaturaAEntrenar) throws MaestriaInsuficienteException{
+		if(this.nivelDeMaestria<20) { // solo puse un numero simbolico, es para probar nada mas
+			throw new MaestriaInsuficienteException("El nivel del maestro " + this.nombre + " es insuficiente para realizar el entrenamiento");
+		}
+	}
+	
 	public String getNombre() {
 		return nombre;
 	}
