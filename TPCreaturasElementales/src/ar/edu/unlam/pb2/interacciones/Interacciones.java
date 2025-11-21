@@ -3,6 +3,7 @@ package ar.edu.unlam.pb2.interacciones;
 import ar.edu.unlam.pb2.creaturas.Afinidad;
 import ar.edu.unlam.pb2.creaturas.Ancestral;
 import ar.edu.unlam.pb2.creaturas.Criatura;
+import ar.edu.unlam.pb2.creaturas.Domesticada;
 
 public class Interacciones {
 
@@ -20,8 +21,13 @@ public class Interacciones {
 		}
 
 		if (sonOpuestas(a.getAfinidad(), b.getAfinidad())) {
-			a.setInestable(true);
-			b.setInestable(true);
+			if (!(a instanceof Domesticada)) {
+		        a.setInestable(true);
+		    }
+
+		    if (!(b instanceof Domesticada)) {
+		        b.setInestable(true);
+		    }
 		}
 
 	}
