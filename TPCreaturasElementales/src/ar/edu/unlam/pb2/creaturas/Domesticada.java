@@ -8,9 +8,7 @@ public class Domesticada extends Criatura {
 
 	@Override
 	public void entrenar() {
-		// TODO Auto-generated method stub
-		
+		this.energia += (int) (Math.random() * 21) + 30; // entre 30 y 50
 	}
-
 	
 }

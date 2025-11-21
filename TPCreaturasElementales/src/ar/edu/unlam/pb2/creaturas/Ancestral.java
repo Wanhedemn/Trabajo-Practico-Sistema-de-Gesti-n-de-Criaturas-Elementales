@@ -8,8 +8,12 @@ public class Ancestral extends Criatura {
 
 	@Override
 	public void entrenar() {
-		// TODO Auto-generated method stub
+		this.energia += (int) (Math.random() * 21) + 30;
 		
+		//Eventualmente con las interacciones habra que testear esta condicion!!!
+		if (this.energia < 100) {
+			this.energia = 100;
+		}
 	}
 
 	

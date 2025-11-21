@@ -6,6 +6,7 @@ import org.junit.Test;
 import ar.edu.unlam.pb2.creaturas.Afinidad;
 import ar.edu.unlam.pb2.creaturas.*;
 import ar.edu.unlam.pb2.creaturas.Domesticada;
+import ar.edu.unlam.pb2.exceptions.MaestriaInsuficienteException;
 
 
 public class MaestroElementalTest {
@@ -51,9 +52,9 @@ public class MaestroElementalTest {
 	}
 	
 	@Test
-	public void queAlEntrenarUnaCriaturaSusValoresDeEnergiaCambienCorrectamente() throws MaestriaInsuficienteException {
-		Maestro pablo= new Maestro("Pablo", 15, Afinidad.FUEGO);
-		Criatura blastoise=new Domesticada("Blastoise",Afinidad.AGUA, 110);
+	public void queCuandoMaestroEntrenaUnaCriaturaSusValoresDeEnergiaCambienCorrectamente() throws MaestriaInsuficienteException {
+		Maestro pablo= new Maestro("Pablo", 20, Afinidad.FUEGO);
+		Criatura blastoise=new Domesticada("Blastoise",Afinidad.AGUA, 100);
 		
 		pablo.entrenarCriatura(blastoise);
 		
@@ -61,7 +62,7 @@ public class MaestroElementalTest {
 	}
 
 	@Test(expected = MaestriaInsuficienteException.class)
-    public void queLanceExcepcionCheckedSiMaestroTienePocaMaestriaAlEntrenar() throws MaestriaInsuficienteException {
+    public void queLanceCheckedExceptionSiMaestroNoCumpleConElMinimoNivelDeMaestriaAlEntrenar() throws MaestriaInsuficienteException {
         Maestro gary = new Maestro("Gary", 5, Afinidad.TIERRA);
         Criatura onix = new Domesticada("Onix", Afinidad.TIERRA, 120);
 

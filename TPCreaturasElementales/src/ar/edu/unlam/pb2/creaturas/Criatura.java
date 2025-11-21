@@ -8,6 +8,10 @@ public abstract class Criatura {
 	private Boolean inestable = false;
 
 	public Criatura(String nombre, Afinidad afinidad, Integer energia) {
+		if (energia < 0 || energia > 200) {
+			throw new IllegalArgumentException("La energia debe ser entre entre 0 y 200 puntos");
+		}
+		
 		this.nombre = nombre;
 		this.afinidad = afinidad;
 		this.energia = energia;

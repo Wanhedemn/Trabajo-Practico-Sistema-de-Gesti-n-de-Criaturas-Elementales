@@ -5,6 +5,7 @@ import java.util.HashMap;
 
 import ar.edu.unlam.pb2.creaturas.Afinidad;
 import ar.edu.unlam.pb2.creaturas.Criatura;
+import ar.edu.unlam.pb2.exceptions.MaestriaInsuficienteException;
 
 public class Maestro {
 
@@ -19,16 +20,6 @@ public class Maestro {
 		this.afinidad=afinidad;
 	}
 	
-	public void agregarCriatura(Criatura criatura) {
-		this.criaturasACargo.put(criatura.getNombre(), criatura);
-	}
-
-	public void entrenarCriatura(Criatura criaturaAEntrenar) throws MaestriaInsuficienteException{
-		if(this.nivelDeMaestria<20) { // solo puse un numero simbolico, es para probar nada mas
-			throw new MaestriaInsuficienteException("El nivel del maestro " + this.nombre + " es insuficiente para realizar el entrenamiento");
-		}
-		criaturaAEntrenar.entrenar();
-	}
 	
 	public String getNombre() {
 		return nombre;
@@ -46,4 +37,18 @@ public class Maestro {
 		return criaturasACargo;
 	}
 	
+	public void agregarCriatura(Criatura criatura) {
+		this.criaturasACargo.put(criatura.getNombre(), criatura);
+	}
+
+	public void entrenarCriatura(Criatura criaturaAEntrenar) throws MaestriaInsuficienteException{
+		if(this.nivelDeMaestria<20) { // solo puse un numero simbolico, es para probar nada mas
+			throw new MaestriaInsuficienteException("El nivel del maestro " + this.nombre + " es insuficiente para realizar el entrenamiento");
+		}
+		criaturaAEntrenar.entrenar();
+	}
+	
+	public void pacificarCriatura(Criatura criaturaAPacificar) {
+		criaturaAPacificar.pacificar();
+	}
 }

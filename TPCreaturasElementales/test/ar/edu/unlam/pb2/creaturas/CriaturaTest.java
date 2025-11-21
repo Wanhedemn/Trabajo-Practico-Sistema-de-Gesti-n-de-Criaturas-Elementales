@@ -4,6 +4,9 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import ar.edu.unlam.pb2.exceptions.ExcesoDeEnergiaRuntimeException;
+import ar.edu.unlam.pb2.exceptions.MaestriaInsuficienteException;
+
 public class CriaturaTest {
  
 	@Test 
@@ -23,18 +26,24 @@ public class CriaturaTest {
 		assertFalse(cria.isInestable());
 	}
 	
-	@Test
-	public void queSePuedaCrearUnMaestro() {
-		
+	@Test(expected = IllegalArgumentException.class)
+	public void queNoSePuedaCrearUnaCriaturaConMenosDe0PuntosDeEnergia() {
+		@SuppressWarnings("unused")
+		Criatura richi = new Salvaje("Richi", Afinidad.FUEGO, -10);
 	}
 	
-	@Test
-	public void queSePuedaCrearUnMaestroYRegistrarUnaCriaturaASuCargo() {
-		
+	@Test(expected = IllegalArgumentException.class)
+	public void queNoSePuedaCrearUnaCriaturaConMasDe200PuntosDeEnergia() {
+		@SuppressWarnings("unused")
+		Criatura richi = new Salvaje("Richi", Afinidad.FUEGO, 310);
 	}
 	
-	
-	
+	@Test(expected = ExcesoDeEnergiaRuntimeException.class)
+	public void queLanceUncheckedExceptionAlEntrenarUnaCriaturaSalvajeYSupereLos200PuntosDeEnergia() throws MaestriaInsuficienteException {
+        Criatura richi = new Salvaje("Richi", Afinidad.FUEGO, 190);
+        
+        richi.entrenar();
+	}
 	
 	//reservado para copy paste
 
