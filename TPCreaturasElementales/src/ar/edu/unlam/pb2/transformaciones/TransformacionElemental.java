@@ -8,7 +8,7 @@ public abstract class TransformacionElemental extends Criatura{
 	protected Criatura criaturaTransformada;
 
 	public TransformacionElemental(Criatura criatura) {
-		super(criatura.getNombre(), criatura.getAfinidad(), criatura.getEnergia());
+		super();
 
 		this.criaturaTransformada=criatura;
 	}
@@ -26,6 +26,11 @@ public abstract class TransformacionElemental extends Criatura{
 	@Override
 	public Integer getEnergia() {
 		return this.criaturaTransformada.getEnergia();
+	}
+	
+	@Override
+	public void setEnergia(Integer energia) {
+		this.criaturaTransformada.setEnergia(energia);;
 	}
 	
 	@Override

@@ -17,6 +17,10 @@ public abstract class Criatura {
 		this.energia = energia;
 	}
 	
+	public Criatura() {
+		
+	}
+	
 	public void pacificar() { //sirve para que podamos cambiarle el estado
 	    if (this.inestable) {
 	        this.inestable = false;

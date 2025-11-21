@@ -11,16 +11,16 @@ public class CriaturaTest {
  
 	@Test 
 	public void queSePuedaCrearUnaCriaturaDomesticada() {
-		Criatura cria = new Domesticada("Michi", Afinidad.AGUA, 100);
+		Criatura cria = new Domesticada("Blastoise", Afinidad.AGUA, 100);
 		
 		assertNotNull(cria);
 	}
 	
 	@Test
 	public void queSePuedaCrearUnaCriaturaYConsultarSusAtributos() {
-		Criatura cria = new Domesticada("Michi", Afinidad.AGUA, 100);
+		Criatura cria = new Domesticada("Blastoise", Afinidad.AGUA, 100);
 		
-		assertEquals("Michi", cria.getNombre());
+		assertEquals("Blastoise", cria.getNombre());
 		assertEquals(Afinidad.AGUA, cria.getAfinidad());
 		assertEquals(Integer.valueOf(100), cria.getEnergia());
 		assertFalse(cria.isInestable());
@@ -29,18 +29,18 @@ public class CriaturaTest {
 	@Test(expected = IllegalArgumentException.class)
 	public void queNoSePuedaCrearUnaCriaturaConMenosDe0PuntosDeEnergia() {
 		@SuppressWarnings("unused")
-		Criatura richi = new Salvaje("Richi", Afinidad.FUEGO, -10);
+		Criatura richi = new Salvaje("Agumon", Afinidad.FUEGO, -10);
 	}
 	
 	@Test(expected = IllegalArgumentException.class)
 	public void queNoSePuedaCrearUnaCriaturaConMasDe200PuntosDeEnergia() {
 		@SuppressWarnings("unused")
-		Criatura richi = new Salvaje("Richi", Afinidad.FUEGO, 310);
+		Criatura richi = new Salvaje("Agumon", Afinidad.FUEGO, 310);
 	}
 	
 	@Test(expected = ExcesoDeEnergiaRuntimeException.class)
 	public void queLanceUncheckedExceptionAlEntrenarUnaCriaturaSalvajeYSupereLos200PuntosDeEnergia() throws MaestriaInsuficienteException {
-        Criatura richi = new Salvaje("Richi", Afinidad.FUEGO, 190);
+        Criatura richi = new Salvaje("Agumon", Afinidad.FUEGO, 190);
         
         richi.entrenar();
 	}
