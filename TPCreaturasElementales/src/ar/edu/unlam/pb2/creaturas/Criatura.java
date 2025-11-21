@@ -5,7 +5,7 @@ public abstract class Criatura {
 	private String nombre;
 	private Afinidad afinidad;
 	protected Integer energia;
-	private Boolean inestable = false;
+	protected Boolean inestable = false;
 
 	public Criatura(String nombre, Afinidad afinidad, Integer energia) {
 		if (energia < 0 || energia > 200) {

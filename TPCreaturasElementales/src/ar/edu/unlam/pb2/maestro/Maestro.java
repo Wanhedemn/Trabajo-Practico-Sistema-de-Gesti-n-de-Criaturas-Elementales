@@ -6,6 +6,7 @@ import java.util.HashMap;
 import ar.edu.unlam.pb2.creaturas.Afinidad;
 import ar.edu.unlam.pb2.creaturas.Criatura;
 import ar.edu.unlam.pb2.exceptions.MaestriaInsuficienteException;
+import ar.edu.unlam.pb2.transformaciones.*;
 
 public class Maestro {
 
@@ -48,7 +49,23 @@ public class Maestro {
 		criaturaAEntrenar.entrenar();
 	}
 	
-	public void pacificarCriatura(Criatura criaturaAPacificar) {
-		criaturaAPacificar.pacificar();
+	public void pacificarCriatura(Criatura criatura) {
+		criatura.pacificar();
+	}
+	
+	public Criatura ritualBendicionDelRio(Criatura criatura) {
+		return new BendicionDelRio(criatura);
+	}
+	
+	public Criatura ritualLlamaInterna(Criatura criatura) {
+		return new LlamaInterna(criatura);
+	}
+	
+	public Criatura ritualVinculoTerrestre(Criatura criatura) {
+		return new VinculoTerrestre(criatura);
+	}
+	
+	public Criatura ritualAscensoDelViento(Criatura criatura) {
+		return new AscensoDelViento(criatura);
 	}
 }

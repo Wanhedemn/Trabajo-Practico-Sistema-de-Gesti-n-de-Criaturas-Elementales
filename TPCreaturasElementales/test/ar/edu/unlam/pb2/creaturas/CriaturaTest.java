@@ -45,6 +45,14 @@ public class CriaturaTest {
         richi.entrenar();
 	}
 	
+	@Test
+	public void queUnaCriaturaDomesticadaNuncaSeaInestable() {
+		Criatura cria = new Domesticada("Blastoise", Afinidad.AGUA, 100);
+		cria.setInestable(true);
+		
+		assertFalse(cria.isInestable());
+	}
+	
 	//reservado para copy paste
 
 	@Test

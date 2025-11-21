@@ -52,7 +52,7 @@ public class MaestroElementalTest {
 	}
 	
 	@Test
-	public void queCuandoMaestroEntrenaUnaCriaturaSusValoresDeEnergiaCambienCorrectamente() throws MaestriaInsuficienteException {
+	public void queMaestroEntreneUnaCriaturaYSusValoresDeEnergiaCambienCorrectamente() throws MaestriaInsuficienteException {
 		Maestro pablo= new Maestro("Pablo", 20, Afinidad.FUEGO);
 		Criatura blastoise=new Domesticada("Blastoise",Afinidad.AGUA, 100);
 		
@@ -67,6 +67,35 @@ public class MaestroElementalTest {
         Criatura onix = new Domesticada("Onix", Afinidad.TIERRA, 120);
 
         gary.entrenarCriatura(onix); //deberia fallar porque el nivel 5<20 que puse en el metodo 
-        
     }
+	
+	@Test
+	public void queMaestroPuedaPacificarUnaCriaturaQueSeHaVueltoInestable() {
+		Maestro gary = new Maestro("Gary", 5, Afinidad.TIERRA);
+        Criatura criatura = new Ancestral("Onix", Afinidad.TIERRA, 120);
+        
+        gary.ritualLlamaInterna(criatura);
+        assertTrue(criatura.isInestable());
+        
+        gary.pacificarCriatura(criatura);
+        assertFalse(criatura.isInestable());
+	}
+	
+	@Test
+	public void queMaestroPuedaEncadenarTransformacionesDeUnaCriatura() {
+		Maestro gary = new Maestro("Gary", 5, Afinidad.TIERRA);
+        Criatura criatura = new Ancestral("Onix", Afinidad.TIERRA, 10);
+        
+        criatura = gary.ritualAscensoDelViento(criatura);
+        criatura = gary.ritualLlamaInterna(criatura);
+        criatura = gary.ritualBendicionDelRio(criatura);
+        
+        assertEquals(Afinidad.AIRE, criatura.getAfinidad());
+	    assertTrue(criatura.isInestable());
+	    assertEquals(Integer.valueOf(20) , criatura.getEnergia());
+	    
+	    criatura = gary.ritualVinculoTerrestre(criatura);
+	    
+	    assertEquals(Integer.valueOf(50), criatura.getEnergia());
+	}
 }
