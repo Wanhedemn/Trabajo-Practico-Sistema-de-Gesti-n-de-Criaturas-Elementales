@@ -6,5 +6,11 @@ public class Ancestral extends Criatura {
 		super(nombre, afinidad, energia);
 	}
 
+	@Override
+	public void entrenar() {
+		// TODO Auto-generated method stub
+		
+	}
+
 	
 }

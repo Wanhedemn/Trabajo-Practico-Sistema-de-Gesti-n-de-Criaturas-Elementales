@@ -43,4 +43,6 @@ public abstract class Criatura {
 		this.energia = energia;
 	}
 
+	public abstract void entrenar();
+
 }

@@ -6,5 +6,11 @@ public class Domesticada extends Criatura {
 		super(nombre, afinidad, energia);
 	}
 
+	@Override
+	public void entrenar() {
+		// TODO Auto-generated method stub
+		
+	}
+
 	
 }
