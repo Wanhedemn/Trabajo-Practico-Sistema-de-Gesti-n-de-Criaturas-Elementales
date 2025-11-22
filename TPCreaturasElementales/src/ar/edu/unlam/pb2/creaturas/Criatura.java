@@ -1,6 +1,6 @@
 package ar.edu.unlam.pb2.creaturas;
 
-public abstract class Criatura {
+public abstract class Criatura implements Entrenamiento{
 	
 	private String nombre;
 	private Afinidad afinidad;
