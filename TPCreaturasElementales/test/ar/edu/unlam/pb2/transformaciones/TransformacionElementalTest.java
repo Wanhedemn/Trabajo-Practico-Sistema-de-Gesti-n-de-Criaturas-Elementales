@@ -7,10 +7,6 @@ import ar.edu.unlam.pb2.creaturas.*;
 
 public class TransformacionElementalTest {
 
-	@Test
-	public void test() {
-		
-	}
 	
 	@Test
 	public void queElDecoradorNoMantengaEstadoDuplicado() {
